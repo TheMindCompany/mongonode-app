@@ -1,0 +1,37 @@
+options:
+    app_name:
+	    type: string
+	    default: mongonode-app
+	    description: Application Name
+    app_port:
+	    type: int
+	    default: 8000
+	    description: Port where the application will handle requests
+    app_scm:
+	    type: string
+	    default: git
+	    description: Repository type (git/bzr/...)
+    app_url:
+	    type: string
+	    default: "http://github.com/webbrandon/mongonode-app.git"
+	    description: A MonoDB and Node.js application.
+    app_branch:
+	    type: string
+	    default: master
+	    description: Application repository deployment branch.
+    polling_schedule:
+	    type: string
+	    default: "*/1 * * * *"
+	    description: Set to a cron schedule string (e.g. "*/5 * * * *" poll each 5 minutes) for polling repo for updates and deploy if new branch contents is found. Set to empty to disable polling.
+    install_root:
+	    type: string
+	    default: /opt
+	    description: Install the application in app_name under this directory
+    app_user:
+	    type: string
+	    default: ubuntu
+	    description: run-as user
+    app_node_env:
+	    type: string
+	    default: production
+	    description: The node environment to run as ("production", "development", "test" etc.).

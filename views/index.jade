@@ -1,0 +1,10 @@
+extends layout
+
+block content
+        form(method='POST', action='/add')
+                label(for='name') Add Name
+                br
+                input(name='name')
+                input(type='submit', value='Add')
+        for names in nameList
+                p #{names.name}

@@ -13,7 +13,7 @@ options:
 	    description: Repository type (git/bzr/...)
     app_url:
 	    type: string
-	    default: "http://github.com/webbrandon/mongonode-app.git"
+	    default: "https://github.com/TheMindCompany/mongonode-app.git"
 	    description: A MonoDB and Node.js application.
     app_branch:
 	    type: string

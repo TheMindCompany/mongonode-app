@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-  			res.render('index', { nameList: names, title: 'MongoDB Sample App' });
+			res.render('index', { nameList: names, title: 'MongoDB Sample App' });
 		}	
 	});
 });

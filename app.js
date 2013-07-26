@@ -15,7 +15,7 @@ var Name = require('./lib/names.js');
 var mongo = require('mongodb')
   , config = require('./config/config.js');
 
-var db = new mongo.Server(config.mongo_host, config.mongo_port, {});
+//var db = new mongo.Server(config.mongo_host, config.mongo_port, {});
 
 // all environments
 app.set('port', process.env.PORT || 3000);

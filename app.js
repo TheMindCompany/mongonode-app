@@ -10,15 +10,14 @@ var express = require('express')
 
 var app = express();
 
-var Name = require('./lib/names.js');
+//var Name = require('./lib/names.js');
 
-var mongo = require('mongodb')
-  , config = require('./config/config.js');
+//var mongo = require('mongodb'), config = require('./config/config.js');
 
 //var db = new mongo.Server(config.mongo_host, config.mongo_port, {});
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
@@ -34,4 +33,6 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
-http.createServer(app).listen(80);
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});

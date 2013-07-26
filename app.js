@@ -10,11 +10,7 @@ var express = require('express')
 
 var app = express();
 
-//var Name = require('./lib/names.js');
-
-//var mongo = require('mongodb'), config = require('./config/config.js');
-
-//var db = new mongo.Server(config.mongo_host, config.mongo_port, {});
+var Name = require('./lib/names.js');
 
 // all environments
 app.set('port', process.env.PORT || 8000);
@@ -31,7 +27,25 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', function(req, res) {
+	Name.nameList(function(names, err){
+		if (err) {
+			console.log(err);
+		} else {
+			res.render('index', { nameList: names, title: 'MongoDB Sample App' });
+		}	
+	});
+});
+app.post('/add', function(req, res) {
+	Name.addName(req.body.name, function(err){
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('Added name: ' + req.body.name);
+			res.redirect('/');
+		}
+	});
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

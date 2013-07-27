@@ -36,6 +36,7 @@ app.get('/', function(req, res) {
 		}	
 	});
 });
+
 app.post('/add', function(req, res) {
 	Name.addName(req.body.name, function(err){
 		if (err) {

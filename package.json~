@@ -12,5 +12,6 @@
     "mongodb": "latest"
   }, 
   "repository" :    { "type" :  "git", 
-    "url" : "http://github.com/TheMindCompany/mongonode-app.git" }
+    "url" : "http://github.com/TheMindCompany/mongonode-app.git" 
+  }
 }

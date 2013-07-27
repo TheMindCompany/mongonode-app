@@ -27,7 +27,7 @@ module.exports.addName = function (name, cb) {
 
 function getList (cb){
 	mongoose.model('names', NameSchema);
-	mongoose.connect('mongodb://localhost:27017/list');
+	mongoose.connect('mongodb://' + config.mongo_host + ':' + config.mongo_port + '/list');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console, 'connection error: '));
 	db.once('open', function () {

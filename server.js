@@ -41,6 +41,7 @@ app.post('/add', function(req, res) {
 	Name.addName(req.body.name, function(err){
 		if (err) {
 			console.log(err);
+			res.render('index', {error: 'No name has been submitted!'});
 		} else {
 			console.log('Added name: ' + req.body.name);
 			res.redirect('/');

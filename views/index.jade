@@ -6,5 +6,7 @@ block content
                 br
                 input(name='name')
                 input(type='submit', value='Add')
+                if (error)
+                        p #{error}
         for names in nameList
                 p #{names.name}

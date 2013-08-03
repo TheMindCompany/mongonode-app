@@ -8,10 +8,6 @@
   "dependencies": {
     "express": "latest",
     "jade": "latest",
-    "mongoose": "latest",
-    "mongodb": "latest"
-  }, 
-  "repository" :    { "type" :  "git", 
-    "url" : "http://github.com/TheMindCompany/mongonode-app.git" 
+    "mongoose":"latest"
   }
 }

@@ -7,5 +7,5 @@ block content
     input(name='name')
     input(type='submit', value='Add')
   br
-  for names in namesList
+  for names in nameList
     p #{names.name}

@@ -6,16 +6,16 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+, Name = require('./lib/names.js');
 
 var app = express();
-
-var Name = require('./lib/names.js');
 
 // all environments
 app.set('port', process.env.PORT || 8000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -27,23 +27,22 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', function(req, res) {
-	Name.nameList(function(names, err){
+app.get('/', function(req, res){
+	Name.getList(function(err, names){
 		if (err) {
 			console.log(err);
 		} else {
-			res.render('index', { nameList: names, title: 'MongoDB Sample App' });
-		}	
+			res.render('index', { namesList: names, title: 'Mongonode-app Sample'});
+		}
 	});
 });
 
-app.post('/add', function(req, res) {
+
+app.post('/add', function(req, res){
 	Name.addName(req.body.name, function(err){
 		if (err) {
 			console.log(err);
-			res.render('index', {error: 'No name has been submitted!'});
 		} else {
-			console.log('Added name: ' + req.body.name);
 			res.redirect('/');
 		}
 	});

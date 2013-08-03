@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
 
-var config = require('./../config/config.js');
+var config = require('./../config.config.js');
 
 var NameSchema = new Schema({name: {type:String, unique: true, require: true}});
 
